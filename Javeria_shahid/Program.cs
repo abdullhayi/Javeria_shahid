@@ -4,14 +4,19 @@ class UnitConverter
 {
     static void Main()
     {
+        Console.WriteLine("=================================");
+        Console.WriteLine("      UNIT CONVERTER TOOL        ");
+        Console.WriteLine("=================================");
+        Console.WriteLine("Convert between Temperature, Length, and Weight easily!");
+
         while (true)
         {
-            Console.WriteLine("\nUnit Converter");
+            Console.WriteLine("\nSelect a conversion category:");
             Console.WriteLine("1. Temperature");
             Console.WriteLine("2. Length");
             Console.WriteLine("3. Weight");
             Console.WriteLine("4. Exit");
-            Console.Write("Choose a category: ");
+            Console.Write("Enter your choice: ");
 
             string choice = Console.ReadLine();
             switch (choice)
@@ -26,9 +31,10 @@ class UnitConverter
                     ConvertWeight();
                     break;
                 case "4":
+                    Console.WriteLine("Exiting the program. Goodbye!");
                     return;
                 default:
-                    Console.WriteLine("Invalid choice. Try again.");
+                    Console.WriteLine("Invalid choice. Please enter a number between 1 and 4.");
                     break;
             }
         }
@@ -36,7 +42,7 @@ class UnitConverter
 
     static void ConvertTemperature()
     {
-        Console.WriteLine("\nTemperature Converter");
+        Console.WriteLine("\n==== Temperature Converter ====");
         Console.WriteLine("1. Celsius to Fahrenheit");
         Console.WriteLine("2. Celsius to Kelvin");
         Console.WriteLine("3. Fahrenheit to Celsius");
@@ -47,7 +53,12 @@ class UnitConverter
 
         string choice = Console.ReadLine();
         Console.Write("Enter temperature value: ");
-        double temp = Convert.ToDouble(Console.ReadLine());
+
+        if (!double.TryParse(Console.ReadLine(), out double temp))
+        {
+            Console.WriteLine("Invalid input. Please enter a valid number.");
+            return;
+        }
 
         double result = choice switch
         {
@@ -60,15 +71,12 @@ class UnitConverter
             _ => double.NaN
         };
 
-        if (double.IsNaN(result))
-            Console.WriteLine("Invalid option.");
-        else
-            Console.WriteLine($"Converted Temperature: {result}");
+        Console.WriteLine(double.IsNaN(result) ? "Invalid option." : $"Converted Temperature: {result}");
     }
 
     static void ConvertLength()
     {
-        Console.WriteLine("\nLength Converter");
+        Console.WriteLine("\n==== Length Converter ====");
         Console.WriteLine("1. Meters to Kilometers");
         Console.WriteLine("2. Meters to Miles");
         Console.WriteLine("3. Kilometers to Meters");
@@ -79,7 +87,12 @@ class UnitConverter
 
         string choice = Console.ReadLine();
         Console.Write("Enter length value: ");
-        double length = Convert.ToDouble(Console.ReadLine());
+
+        if (!double.TryParse(Console.ReadLine(), out double length))
+        {
+            Console.WriteLine("Invalid input. Please enter a valid number.");
+            return;
+        }
 
         double result = choice switch
         {
@@ -92,15 +105,12 @@ class UnitConverter
             _ => double.NaN
         };
 
-        if (double.IsNaN(result))
-            Console.WriteLine("Invalid option.");
-        else
-            Console.WriteLine($"Converted Length: {result}");
+        Console.WriteLine(double.IsNaN(result) ? "Invalid option." : $"Converted Length: {result}");
     }
 
     static void ConvertWeight()
     {
-        Console.WriteLine("\nWeight Converter");
+        Console.WriteLine("\n==== Weight Converter ====");
         Console.WriteLine("1. Kilograms to Grams");
         Console.WriteLine("2. Kilograms to Pounds");
         Console.WriteLine("3. Grams to Kilograms");
@@ -111,7 +121,12 @@ class UnitConverter
 
         string choice = Console.ReadLine();
         Console.Write("Enter weight value: ");
-        double weight = Convert.ToDouble(Console.ReadLine());
+
+        if (!double.TryParse(Console.ReadLine(), out double weight))
+        {
+            Console.WriteLine("Invalid input. Please enter a valid number.");
+            return;
+        }
 
         double result = choice switch
         {
@@ -124,9 +139,6 @@ class UnitConverter
             _ => double.NaN
         };
 
-        if (double.IsNaN(result))
-            Console.WriteLine("Invalid option.");
-        else
-            Console.WriteLine($"Converted Weight: {result}");
+        Console.WriteLine(double.IsNaN(result) ? "Invalid option." : $"Converted Weight: {result}");
     }
 }
