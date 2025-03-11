@@ -1,0 +1,41 @@
+# Unit Converter
+
+## Description
+The **Unit Converter** is a simple C# console application that converts **temperature, length, and weight** units. It features an interactive menu for easy selection.
+
+## Features
+- Convert **temperature** (Celsius, Fahrenheit, Kelvin)
+- Convert **length** (Meters, Kilometers, Miles)
+- Convert **weight** (Kilograms, Grams, Pounds, Ounces)
+- Simple and user-friendly interface
+- Handles invalid input
+
+## How to Run
+1. Install **.NET SDK** if not already installed.
+2. Open the project folder in a C# development environment.
+3. Run the program with:
+   ```sh
+   dotnet run
+   ```
+4. Follow on-screen instructions to select a conversion type and enter values.
+
+## Example Output
+```
+Select a conversion category:
+1. Temperature
+2. Length
+3. Weight
+4. Exit
+Enter your choice: 1
+
+Enter temperature value: 100
+Converted Temperature: 212°F
+```
+
+## Future Improvements
+- Add more unit types (speed, time, volume)
+- Create a graphical user interface (GUI)
+
+## License
+Open-source and free to use. Feel free to modify and contribute!
+
